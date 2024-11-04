@@ -1,6 +1,6 @@
 //#define LOWMEMORYMODE //uncomment this to load centcom and runtime station and thats it.
 
-#include "map_files\generic\CentCom.dmm"
+#include "map_files\rapture_maps\generic\CentCom.dmm"	// rapture edit
 
 #ifndef LOWMEMORYMODE
 	#ifdef ALL_MAPS

@@ -4031,6 +4031,7 @@
 #include "modular_citadel\code\modules\vectorcrafts\vectorcraft.dm"
 #include "modular_citadel\code\modules\vectorcrafts\vectortruck.dm"
 #include "modular_citadel\code\modules\vectorcrafts\vectorvariants.dm"
+#include "modular_rapture\code\game\objects\structures\sauna_oven.dm"
 #include "modular_sand\code\_globalvars\bitfields.dm"
 #include "modular_sand\code\_globalvars\lists\lewd_content.dm"
 #include "modular_sand\code\_globalvars\lists\misc.dm"
