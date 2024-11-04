@@ -779,6 +779,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 										tauric_shape = TRUE
 							dat += "<b>Penis Shape:</b> <a style='display:block;width:120px' href='?_src_=prefs;preference=cock_shape;task=input'>[features["cock_shape"]][tauric_shape ? " (Taur)" : ""]</a>"
 							dat += "<b>Penis Length:</b> <a style='display:block;width:120px' href='?_src_=prefs;preference=cock_length;task=input'>[features["cock_length"]] inch(es)</a>"
+							// rapture added
+							dat += "<b>Max Length:</b><a style='display:block;width:120px' href='?_src_=prefs;preference=cock_max_length;task=input'>[features["cock_max_length"] ? features["cock_max_length"] : "Disabled"]</a>"
+							dat += "<b>Min Length:</b><a style='display:block;width:120px' href='?_src_=prefs;preference=cock_min_length;task=input'>[features["cock_min_length"] ? features["cock_min_length"] : "Disabled"]</a>"
+							dat += "<b>Diameter Ratio:</b> <a style='display:block;width:120px' href='?_src_=prefs;preference=cock_diameter_ratio;task=input'>[features["cock_diameter_ratio"]]</a>"
+							// rapture added end
 							dat += "<b>Penis Visibility:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=cock_visibility;task=input'>[features["cock_visibility"]]</a>"
 							dat += "<b>Penis Always Accessible:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=cock_accessible'>[features["cock_accessible"] ? "Yes" : "No"]</a>"
 							dat += "<b>Has Testicles:</b><a style='display:block;width:50px' href='?_src_=prefs;preference=has_balls'>[features["has_balls"] == TRUE ? "Yes" : "No"]</a>"
@@ -822,6 +827,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							dat += "<b>Breasts Visibility:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=breasts_visibility;task=input'>[features["breasts_visibility"]]</a>"
 							dat += "<b>Breasts Always Accessible:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=breasts_accessible'>[features["breasts_accessible"] ? "Yes" : "No"]</a>"
 							dat += "<b>Lactates:</b><a style='display:block;width:50px' href='?_src_=prefs;preference=breasts_producing'>[features["breasts_producing"] == TRUE ? "Yes" : "No"]</a>"
+							// rapture added
+							dat += "<b>Max Size:</b><a style='display:block;width:50px' href='?_src_=prefs;preference=breasts_max_size;task=input'>[features["breasts_max_size"] ? features["breasts_max_size"] : "Disabled"]</a>"
+							dat += "<b>Min Size:</b><a style='display:block;width:50px' href='?_src_=prefs;preference=breasts_min_size;task=input'>[features["breasts_min_size"] ? features["breasts_min_size"] : "Disabled"]</a>"
+							// rapture added end
 						dat += "</td>"
 						dat += APPEARANCE_CATEGORY_COLUMN
 						dat += "<h3>Butt</h3>"
@@ -835,6 +844,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 								dat += "<span style='border: 1px solid #161616; background-color: #[features["butt_color"]];'><font color='[color_hex2num(features["butt_color"]) < 200 ? "FFFFFF" : "000000"]'>#[features["butt_color"]]</font></span> <a href='?_src_=prefs;preference=butt_color;task=input'>Change</a><br>"
 							dat += "<b>Butt Size:</b><a style='display:block;width:50px' href='?_src_=prefs;preference=butt_size;task=input'>[features["butt_size"]]</a>"
 							dat += "<b>Butt Visibility:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=butt_visibility;task=input'>[features["butt_visibility"]]</a>"
+							// rapture added
+							dat += "<b>Max Size:</b><a style='display:block;width:50px' href='?_src_=prefs;preference=butt_max_size;task=input'>[features["butt_max_size"] ? features["butt_max_size"] : "Disabled"]</a>"
+							dat += "<b>Min Size:</b><a style='display:block;width:50px' href='?_src_=prefs;preference=butt_min_size;task=input'>[features["butt_min_size"] ? features["butt_min_size"] : "Disabled"]</a>"
+							// rapture added end
 							dat += "<b>Butt Always Accessible:</b><a style='display:block;width:100px' href='?_src_=prefs;preference=butt_accessible'>[features["butt_accessible"] ? "Yes" : "No"]</a>"
 						dat += "</td>"
 						dat += "<td height='300px' valign='top'>"
@@ -2716,6 +2729,61 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/n_vis = input(user, "Butt Visibility", "Character Preference") as null|anything in CONFIG_GET(str_list/safe_visibility_toggles)
 					if(n_vis)
 						features["butt_visibility"] = n_vis
+
+				// rapture added
+				if("cock_max_length")
+					var/max_B = CONFIG_GET(number/penis_max_inches_prefs)
+					var/new_size = input(user, "Max size:\n([features["cock_length"]]-[max_B])(0 = disabled)", "Character Preference") as num|null
+					if(new_size)
+						features["cock_max_length"] = clamp(round(new_size), features["cock_length"], max_B)
+					else
+						features -= "cock_max_length"
+
+				if("cock_min_length")
+					var/min_B = CONFIG_GET(number/penis_min_inches_prefs)
+					var/new_size = input(user, "Min size:\n([min_B]-[features["cock_length"]])(0 = disabled)", "Character Preference") as num|null
+					if(new_size)
+						features["cock_min_length"] = clamp(round(new_size), min_B, features["cock_length"])
+					else
+						features -= "cock_min_length"
+
+				if("cock_diameter_ratio")
+					var/min_diameter_ratio = COCK_DIAMETER_RATIO_MIN
+					var/max_diameter_ratio = COCK_DIAMETER_RATIO_MAX
+					var/new_ratio = input(user, "Penis diameter ratio:\n([min_diameter_ratio]-[max_diameter_ratio])\nReminder that your sprite size will affect this.", "Character Preference") as num|null
+					if(new_ratio)
+						features["cock_diameter_ratio"] = clamp(round(new_ratio, 0.01), min_diameter_ratio, max_diameter_ratio)
+
+				if("breasts_max_size")
+					var/new_size = input(user, "Breast Max Size (cancel to disable)", "Character Preference") as null|anything in GLOB.breast_values
+					if(new_size)
+						features["breasts_max_size"] = new_size
+					else
+						features -= "breasts_max_size"
+
+				if("breasts_min_size")
+					var/new_size = input(user, "Breast Min Size (cancel to disable)", "Character Preference") as null|anything in GLOB.breast_values
+					if(new_size)
+						features["breasts_min_size"] = new_size
+					else
+						features -= "breasts_min_size"
+
+				if("butt_max_size")
+					var/max_B = CONFIG_GET(number/butt_max_size_prefs)
+					var/new_size = input(user, "Max size:\n([features["butt_size"]]-[max_B])(0 = disabled)", "Character Preference") as num|null
+					if(new_size)
+						features["butt_max_size"] = clamp(round(new_size), features["butt_size"], max_B)
+					else
+						features -= "butt_max_size"
+
+				if("butt_min_size")
+					var/min_B = CONFIG_GET(number/butt_min_size_prefs)
+					var/new_size = input(user, "Min size:\n([min_B]-[features["butt_size"]])(0 = disabled)", "Character Preference") as num|null
+					if(new_size)
+						features["butt_min_size"] = clamp(round(new_size), min_B, features["butt_size"])
+					else
+						features -= "butt_min_size"
+				// rapture added end
 
 				if("ooccolor")
 					var/new_ooccolor = input(user, "Choose your OOC colour:", "Game Preference",ooccolor) as color|null

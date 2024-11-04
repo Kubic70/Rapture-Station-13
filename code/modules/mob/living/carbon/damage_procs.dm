@@ -43,6 +43,8 @@
 					update_damage_overlays()
 			else
 				adjustStaminaLoss(damage_amount, forced = forced)
+		if(LUST_DAMAGE)	// rapture added
+			handle_post_sex(damage_amount, null, null)
 	return TRUE
 
 

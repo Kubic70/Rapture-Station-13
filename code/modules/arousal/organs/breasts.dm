@@ -18,7 +18,7 @@
 	unarousal_verb = "Your breasts no longer feel sensitive"
 	orgasm_verb = "leaking"
 	fluid_transfer_factor = 0.5
-	var/static/list/breast_values = list("a" =  1, "b" = 2, "c" = 3, "d" = 4, "e" = 5, "f" = 6, "g" = 7, "h" = 8, "i" = 9, "j" = 10, "k" = 11, "l" = 12, "m" = 13, "n" = 14, "o" = 15, "huge" = 16, "flat" = 0)
+	var/static/list/breast_values = GLOB.breast_values	// rapture edit
 	var/cached_size //these two vars pertain size modifications and so should be expressed in NUMBERS.
 	var/prev_size //former cached_size value, to allow update_size() to early return should be there no significant changes.
 
@@ -73,7 +73,7 @@
 //this is far too lewd wah
 
 /obj/item/organ/genital/breasts/modify_size(modifier, min = -INFINITY, max = INFINITY)
-	var/new_value = clamp(cached_size + modifier, min, max)
+	var/new_value =  clamp(cached_size + modifier, max(min, GLOB.breast_values[min_size] || -INFINITY), min(GLOB.breast_values[max_size] || INFINITY, max)) // rapture edit
 	if(new_value == cached_size)
 		return
 	prev_size = cached_size
@@ -113,6 +113,8 @@
 	else
 		color = "#[D.features["breasts_color"]]"
 	size = D.features["breasts_size"]
+	max_size = D.features["breasts_max_size"]	// rapture added
+	min_size = D.features["breasts_min_size"]	// rapture added
 	shape = D.features["breasts_shape"]
 	if(!D.features["breasts_producing"])
 		genital_flags &= ~ (GENITAL_FUID_PRODUCTION|CAN_CLIMAX_WITH|CAN_MASTURBATE_WITH)

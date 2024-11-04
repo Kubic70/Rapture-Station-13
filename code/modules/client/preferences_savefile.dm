@@ -737,7 +737,83 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	. = TRUE
 
-	features = list("mcolor" = "FFFFFF", "mcolor2" = "FFFFFF", "mcolor3" = "FFFFFF", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "horns_color" = "85615a", "ears" = "None", "wings" = "None", "wings_color" = "FFF", "frills" = "None", "deco_wings" = "None", "spines" = "None", "legs" = "Plantigrade", "insect_wings" = "Plain", "insect_fluff" = "None", "insect_markings" = "None", "arachnid_legs" = "Plain", "arachnid_spinneret" = "Plain", "arachnid_mandibles" = "Plain", "mam_body_markings" = "Plain", "mam_ears" = "None", "mam_snouts" = "None", "mam_tail" = "None", "mam_tail_animated" = "None", "xenodorsal" = "Standard", "xenohead" = "Standard", "xenotail" = "Xenomorph Tail", "taur" = "None", "genitals_use_skintone" = FALSE, "has_cock" = FALSE, "cock_shape" = DEF_COCK_SHAPE, "cock_length" = COCK_SIZE_DEF, "cock_diameter_ratio" = COCK_DIAMETER_RATIO_DEF, "cock_color" = "ffffff", "cock_taur" = FALSE, "has_balls" = FALSE, "balls_color" = "ffffff", "balls_shape" = DEF_BALLS_SHAPE, "balls_size" = BALLS_SIZE_DEF, "balls_cum_rate" = CUM_RATE, "balls_cum_mult" = CUM_RATE_MULT, "balls_efficiency" = CUM_EFFICIENCY, "has_breasts" = FALSE, "breasts_color" = "ffffff", "breasts_size" = BREASTS_SIZE_DEF, "breasts_shape" = DEF_BREASTS_SHAPE, "breasts_producing" = FALSE, "has_vag" = FALSE, "vag_shape" = DEF_VAGINA_SHAPE, "vag_color" = "ffffff", "has_womb" = FALSE, "has_butt" = FALSE, "butt_color" = "ffffff", "butt_size" = BUTT_SIZE_DEF, "balls_visibility" = GEN_VISIBLE_NO_UNDIES, "breasts_visibility"= GEN_VISIBLE_NO_UNDIES, "cock_visibility"	= GEN_VISIBLE_NO_UNDIES, "vag_visibility"	= GEN_VISIBLE_NO_UNDIES, "butt_visibility"	= GEN_VISIBLE_NO_UNDIES, "breasts_accessible" = FALSE, "cock_accessible" = FALSE, "vag_accessible" = FALSE, "butt_accessible" = FALSE, "anus_accessible" = FALSE,"ipc_screen" = "Sunburst", "ipc_antenna" = "None", "flavor_text" = "", "silicon_flavor_text" = "", "ooc_notes" = "", "meat_type" = "Mammalian", "body_model" = MALE, "body_size" = RESIZE_DEFAULT_SIZE, "color_scheme" = OLD_CHARACTER_COLORING)
+	// rapture edit
+	features = list(
+		"mcolor" = "FFFFFF",
+		"mcolor2" = "FFFFFF",
+		"mcolor3" = "FFFFFF",
+		"tail_lizard" = "Smooth",
+		"tail_human" = "None",
+		"snout" = "Round",
+		"horns" = "None",
+		"horns_color" = "85615a",
+		"ears" = "None",
+		"wings" = "None",
+		"wings_color" = "FFF",
+		"frills" = "None",
+		"deco_wings" = "None",
+		"spines" = "None",
+		"legs" = "Plantigrade",
+		"insect_wings" = "Plain",
+		"insect_fluff" = "None",
+		"insect_markings" = "None",
+		"arachnid_legs" = "Plain",
+		"arachnid_spinneret" = "Plain",
+		"arachnid_mandibles" = "Plain",
+		"mam_body_markings" = "Plain",
+		"mam_ears" = "None",
+		"mam_snouts" = "None",
+		"mam_tail" = "None",
+		"mam_tail_animated" = "None",
+		"xenodorsal" = "Standard",
+		"xenohead" = "Standard",
+		"xenotail" = "Xenomorph Tail",
+		"taur" = "None",
+		"genitals_use_skintone" = FALSE,
+		"has_cock" = FALSE,
+		"cock_shape" = DEF_COCK_SHAPE,
+		"cock_length" = COCK_SIZE_DEF,
+		"cock_diameter_ratio" = COCK_DIAMETER_RATIO_DEF,
+		"cock_color" = "ffffff",
+		"cock_taur" = FALSE,
+		"has_balls" = FALSE,
+		"balls_color" = "ffffff",
+		"balls_shape" = DEF_BALLS_SHAPE,
+		"balls_size" = BALLS_SIZE_DEF,
+		"balls_cum_rate" = CUM_RATE,
+		"balls_cum_mult" = CUM_RATE_MULT,
+		"balls_efficiency" = CUM_EFFICIENCY,
+		"has_breasts" = FALSE,
+		"breasts_color" = "ffffff",
+		"breasts_size" = BREASTS_SIZE_DEF,
+		"breasts_shape" = DEF_BREASTS_SHAPE,
+		"breasts_producing" = FALSE,
+		"has_vag" = FALSE,
+		"vag_shape" = DEF_VAGINA_SHAPE,
+		"vag_color" = "ffffff",
+		"has_womb" = FALSE,
+		"has_butt" = FALSE,
+		"butt_color" = "ffffff",
+		"butt_size" = BUTT_SIZE_DEF,
+		"balls_visibility" = GEN_VISIBLE_NO_UNDIES,
+		"breasts_visibility"= GEN_VISIBLE_NO_UNDIES,
+		"cock_visibility"	= GEN_VISIBLE_NO_UNDIES,
+		"vag_visibility"	= GEN_VISIBLE_NO_UNDIES,
+		"butt_visibility"	= GEN_VISIBLE_NO_UNDIES,
+		"breasts_accessible" = FALSE,
+		"cock_accessible" = FALSE,
+		"vag_accessible" = FALSE,
+		"butt_accessible" = FALSE,
+		"anus_accessible" = FALSE,
+		"ipc_screen" = "Sunburst",
+		"ipc_antenna" = "None",
+		"flavor_text" = "",
+		"silicon_flavor_text" = "",
+		"ooc_notes" = "",
+		"meat_type" = "Mammalian",
+		"body_model" = MALE,
+		"body_size" = RESIZE_DEFAULT_SIZE,
+		"color_scheme" = OLD_CHARACTER_COLORING)
 
 	//Species
 	var/species_id
@@ -931,6 +1007,24 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["vore_flags"] >> vore_flags
 	S["vore_taste"] >> vore_taste
 	S["vore_smell"] >> vore_smell
+
+	// rapture added
+	S["feature_cock_diameter_ratio"] >> features["cock_diameter_ratio"]
+	if(S["features_cock_max_length"])
+		S["features_cock_max_length"] >> features["cock_max_length"]
+	if(S["features_breasts_max_size"])
+		S["features_breasts_max_size"] >> features["breasts_max_size"]
+	if(S["features_butt_max_size"])
+		S["features_butt_max_size"] >> features["butt_max_size"]
+
+	if(S["features_cock_min_length"])
+		S["features_cock_min_length"] >> features["cock_min_length"]
+	if(S["features_breasts_min_size"])
+		S["features_breasts_min_size"] >> features["breasts_min_size"]
+	if(S["features_butt_min_size"])
+		S["features_butt_min_size"] >> features["butt_min_size"]
+	// rapture added end
+
 	var/char_vr_path = "[vr_path]/character_[default_slot]_v2.json"
 	if(fexists(char_vr_path))
 		var/list/json_from_file = json_decode(file2text(char_vr_path))
@@ -1058,6 +1152,14 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	var/static/max_D
 	if(!max_D)
 		max_D = CONFIG_GET(number/penis_max_inches_prefs)
+	// rapture added
+	var/static/min_diameter_ratio
+	if(!min_diameter_ratio)
+		min_diameter_ratio = COCK_DIAMETER_RATIO_MIN
+	var/static/max_diameter_ratio
+	if(!max_diameter_ratio)
+		max_diameter_ratio = COCK_DIAMETER_RATIO_MAX
+	// rapture added end
 	var/static/min_B
 	if(!min_B)
 		min_B = CONFIG_GET(number/butt_min_size_prefs)
@@ -1069,6 +1171,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	features["breasts_size"] = sanitize_inlist(features["breasts_size"], B_sizes, BREASTS_SIZE_DEF)
 	features["cock_length"] = sanitize_integer(features["cock_length"], min_D, max_D, COCK_SIZE_DEF)
+	features["cock_diameter_ratio"] = sanitize_integer(features["cock_diameter_ratio"], min_diameter_ratio, max_diameter_ratio, COCK_DIAMETER_RATIO_DEF)	// rapture added
 	features["butt_size"] = sanitize_integer(features["butt_size"], min_B, max_B, BUTT_SIZE_DEF)
 	features["breasts_shape"] = sanitize_inlist(features["breasts_shape"], GLOB.breasts_shapes_list, DEF_BREASTS_SHAPE)
 	features["cock_shape"] = sanitize_inlist(features["cock_shape"], GLOB.cock_shapes_list, DEF_COCK_SHAPE)
@@ -1302,6 +1405,17 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["feature_color_scheme"], features["color_scheme"])
 
 	WRITE_FILE(S["feature_anus_accessible"], features["anus_accessible"])
+
+	// rapture added
+	WRITE_FILE(S["feature_cock_diameter_ratio"], features["cock_diameter_ratio"])
+	WRITE_FILE(S["features_cock_max_length"], features["cock_max_length"])
+	WRITE_FILE(S["features_breasts_max_size"], features["breasts_max_size"])
+	WRITE_FILE(S["features_butt_max_size"], features["butt_max_size"])
+
+	WRITE_FILE(S["features_cock_min_length"], features["cock_min_length"])
+	WRITE_FILE(S["features_breasts_min_size"], features["breasts_min_size"])
+	WRITE_FILE(S["features_butt_min_size"], features["butt_min_size"])
+	// rapture added end
 
 	//save every advanced coloring mode thing in one go
 	for(var/feature in features)

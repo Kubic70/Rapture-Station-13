@@ -11,6 +11,8 @@
 	var/unarousal_verb = "You no longer feel aroused"
 	var/fluid_transfer_factor = 0 //How much would a partner get in them if they climax using this?
 	var/size = 2 //can vary between num or text, just used in icon_state strings
+	var/max_size = 6	// rapture added
+	var/min_size = 1	// rapture added
 	var/datum/reagent/fluid_id = null
 	var/fluid_max_volume = 50
 	var/fluid_efficiency = 1
@@ -35,6 +37,12 @@
 
 /obj/item/organ/genital/on_life()
 	return
+
+/obj/item/organ/genital/proc/get_fluid()		// rapture added
+	return clamp(fluid_rate * ((world.time - last_orgasmed) / (10 SECONDS)) * fluid_mult, 0, fluid_max_volume)
+
+/obj/item/organ/genital/proc/get_fluid_fraction()		// rapture added
+	return get_fluid() / fluid_max_volume
 
 /obj/item/organ/genital/proc/set_aroused_state(new_state,cause = "manual toggle")
 	if(!(genital_flags & GENITAL_CAN_AROUSE))

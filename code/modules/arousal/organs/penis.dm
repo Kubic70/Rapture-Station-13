@@ -15,13 +15,14 @@
 	size = 2 //arbitrary value derived from length and diameter for sprites.
 	layer_index = PENIS_LAYER_INDEX
 	var/length = 6 //inches
-
+	var/max_length = 9	// rapture added
+	var/min_length = 2	// rapture added
 	var/prev_length = 6 //really should be renamed to prev_length
 	var/diameter = 4.38
 	var/diameter_ratio = COCK_DIAMETER_RATIO_DEF //0.25; check citadel_defines.dm
 
 /obj/item/organ/genital/penis/modify_size(modifier, min = -INFINITY, max = INFINITY)
-	var/new_value = clamp(length + modifier, min, max)
+	var/new_value = clamp(length + modifier, max(min, min_size ? min_size : -INFINITY), min(max_length ? max_length : INFINITY, max))	// rapture edit
 	if(new_value == length)
 		return
 	prev_length = length
@@ -93,6 +94,8 @@
 	else
 		color = "#[D.features["cock_color"]]"
 	length = D.features["cock_length"]
+	max_length = D.features["cock_max_length"]	// rapture added
+	min_length = D.features["cock_min_length"]	// rapture added
 	diameter_ratio = D.features["cock_diameter_ratio"]
 	shape = D.features["cock_shape"]
 	prev_length = length
